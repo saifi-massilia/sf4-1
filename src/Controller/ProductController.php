@@ -7,49 +7,40 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
-    /**
-     * @Route("/product", name="product")
-     */
-    public function index()
-    {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ProductController.php',
-        ]);
-    }
+
 
     /**
+     * liste des produits
      * @Route("product/all", name="allproduct")
      */
     public function allProduct()
     {
-        return $this->json([
-            'message' => 'AllProducts!',
-            'path' => 'src/Controller/ProductController.php',
-        ]);
+        return $this->render('product/list.html.twig');
+
     }
 
 
 
     /**
+     * ajouter un produit
      * @Route("product/new", name="addProduct")
      */
     public function addProduct()
     {
-        return $this->json([
-            'message' => 'ajouter un produit',
+        return $this->render('product/add.html.twig');
 
-        ]);
     }
 
 
+
     /**
+     * modifier un produit
      * @Route("product/update/{id}", name="updateProduct")
      */
     public function updateProduct($id)
     {
-        return $this->json([
-            'message' => 'modification du produit '.$id
+        return $this->render('product/edit.html.twig',[
+             'n°'=>$id
 
         ]);
     }
