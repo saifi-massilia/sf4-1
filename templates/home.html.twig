@@ -1,0 +1,22 @@
+{#
+on hérite du template "base.html.twig"
+ça permet de recuperer la sturcture html du fichier base.html
+ mais egalement de remplacer le contenu des"blocks"
+#}
+
+{% extends"base.html.twig" %}
+{#õn ecrase le block title qui se trouve dans base.html car on a l herité #}
+{% block title %} 
+    Bienvenue!
+{% endblock %}
+{#on ecrase le block body#}
+{% block body %}
+    <p>page d'acceuil<br>
+    Pseudo:{{ pseudo }}
+    </p>
+    <ul>
+        {% for element in liste %}
+<li>    {{ element }}   </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
