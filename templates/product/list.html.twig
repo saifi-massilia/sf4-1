@@ -7,5 +7,38 @@
 
 {% block body %}
     <h1>Liste des produits </h1>
-
+  <a href="{{ path('addProduct') }}"class="btn-success btn-block">
+      nouveau produit
+  </a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>prix</th>
+        <th>Quantité</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in product_list  %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.prix|number_format(2,'.',' ') }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+                <a href="{{ path('updateProduct',{id:product.id}) }}"class="btn btn-primary">
+                    Modifier
+                </a>
+                <a href="#" class="btn btn-danger">
+                    Supprimer
+                </a>
+                </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
