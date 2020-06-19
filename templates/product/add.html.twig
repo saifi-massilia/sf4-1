@@ -2,10 +2,33 @@
 
 
 {% block title %}
-    ajouter des produits
+    Ajouter des produits
 {% endblock %}
 
 {% block body %}
-    <h1>ajouter des produit</h1>
+    <h1>Ajouter des produit</h1>
+    {# ouvrir & fermer le formulaire #}
+    {{ form_start(product_form) }}
+
+
+    {{ form_row(product_form.name, {
+        label:'Nom du produit:'
+    }) }}
+
+    {{ form_row(product_form.description, {
+        label:'Description du produit:'
+    }) }}
+
+    {{ form_row(product_form.prix, {
+        label:'prix:'
+    }) }}
+
+    {{ form_row(product_form.quantity, {
+        label:'Quantité en stock:'
+    }) }}
+    <button type="submit" class="btn btn-success btn-block">
+        ajouter
+    </button>
+    {{ form_end(product_form) }}
 
 {% endblock %}
